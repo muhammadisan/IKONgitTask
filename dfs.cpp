@@ -11,7 +11,7 @@ int dy[] = {1, -1, 0, 0};
 
 int visited[10001][10001];
 
-void DFS(int i, int j, int n, int m, int visited[10001][10001], int &count) {
+void Dfs(int i, int j, int n, int m, int visited[10001][10001], int &count) {
 	visited[i][j] = 1;
 	count++;
 	for(int k = 0; k < 4; k++) {
@@ -19,7 +19,7 @@ void DFS(int i, int j, int n, int m, int visited[10001][10001], int &count) {
 		int y = j+dy[k];
 		if(inRange(x, y, n, m)) {
 			if(visited[x][y] == 0) {
-				DFS(x, y, n, m, visited, count);
+				Dfs(x, y, n, m, visited, count);
 			}
 		}
 	}
@@ -45,7 +45,7 @@ int main() {
 			for(int j = 0; j < m; j++) {
 				int count = 0;
 				if(visited[i][j] == 0) {
-					DFS(i, j, n, m, visited, count);
+					Dfs(i, j, n, m, visited, count);
 					v.push_back(count);
 				}
 			}
